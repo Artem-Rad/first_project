@@ -1,0 +1,11 @@
+
+{% block content %}
+{% csrf_token %}
+<form action="{% url 'add_task' day.id  %}" method="post">
+    {% csrf_token %}
+    <label> do it: </label>
+    {{form}}
+    <input type="submit" name="send" value="Add" class="mt-2 btn btn-info">
+</form>
+
+{% endblock %}

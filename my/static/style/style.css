@@ -1,0 +1,33 @@
+.button_my {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -104.5px; /*104.5px is half of the button width*/
+}
+.test_my{
+  height:1000px;
+}
+
+table {
+    color:green;
+}
+
+[class="privet"] {
+    color:purple;
+}
+
+.row-red {
+    color:red;
+}
+
+.row-blue {
+    color:blue;
+}
+
+.row-bold {
+    font-weight: bold;
+}
+
+.errorlist{
+    color: red;
+}

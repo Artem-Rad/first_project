@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    {% for day in days %}
+
+    <div class="col-lg-4">
+
+        <h2>{{day.name}}</h2>
+        {% for item in task %}
+        {% if day.id == item.day_id %}
+        <p>{{ item }} <a class="related-widget-wrapper-link change-related" id="change_id_day"
+                                   data-href-template="#"
+                                   title="Изменить выбранный объект типа " href="{% url 'up_task' item.pk %}">
+            <img src="/static/admin/img/icon-changelink.svg" alt="Изменить"></a>
+            <a class="related-widget-wrapper-link delete-related" id="delete_id_day"
+               data-href-template="#"
+               title="Удалить выбранный объект типа " href="{% url 'del_task' item.pk %}"><img
+                    src="/static/admin/img/icon-deletelink.svg" alt="Удалить"></a>
+        </p>
+        {% endif %}
+        {% endfor %}
+        <a class="related-widget-wrapper-link add-related" id="add_id_day"
+           href="{% url 'add_task' day.pk %}" title="Добавить ещё один объект типа " >
+        <img src="/static/admin/img/icon-addlink.svg" alt="Добавить"></a>
+
+        <hr>
+    </div>
+    {% endfor %}
+
+</div>
+
+<hr>
+{% endblock %}
+
+
+
+
+
+
+<div class="col-lg-4">
+        <form action="{% url 'timetable' %}" method="post">
+            {% csrf_token %}
+            <label> do it: </label>
+            {{form}}
+            <input type="submit" name="send" value="Add" class="mt-2 btn btn-info">
+        </form>
+    </div>
+
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div>

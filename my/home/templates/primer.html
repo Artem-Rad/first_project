@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+
+{% comment %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+{% endcomment %}
+<html>
+<head>
+    <title>HI man</title>
+    <link rel="shorcut icon" href="http://atom.io/favicon.ico">
+    <style>
+        table {
+        color:blue
+        }
+
+    </style>
+<link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+<h1 class="privet">
+    <a href="{% url 'home' %}">HOME</a>
+</h1>
+<hr>
+
+<h5> zagal H2 </h5>
+<p id="yakor">obzatc naso nosa </p>
+<p> nosa <br> nosa </p>
+<p><b>Obzatc FATT</b></p>
+<p><em> Obzatc kyrsiv </em></p>
+<a href="http://127.0.0.1:8000/">RESTART PAGE</a>
+<br>
+<a href="#yakor"> перенапровление на obzatc naso nosa </a>
+
+<ul>
+    <li> elem of list</li>
+    <hr>
+    <li> elem of list</li>
+    <li> elem of list</li>
+    <a href="{% url 'home' %}">HOME</a>
+</ul>
+<hr>
+<form class="" action="#" method="post">
+    <input type="date">
+    <input type="submit" value="OTPRAVIT">
+
+</form>
+
+<table border="5">
+    <thead>
+    <tr>
+        <th> Frut</th>
+        <th> Count</th>
+    </tr>
+    </thead>
+    <tr>
+        <td class="row-red row-bold ">apple</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td >peeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeear</td>
+        <td class="row-blue row-bold">4</td>
+    </tr>
+    <tfool>
+        <tr>
+            <td colspan="2">Itog: 6</td>
+        </tr>
+    </tfool>
+</table>
+
+<img src="https://i.pinimg.com/736x/1f/32/de/1f32de75ae0a1ac218a902f6f361a6d7.jpg" width="100">
+
+</body>
+</html>

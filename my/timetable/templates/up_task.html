@@ -1,0 +1,14 @@
+
+
+{% block content %}
+
+{% csrf_token %}
+<h4>старые данные:</h4>
+{{task}}
+<form action="{% url 'up_task' task.id  %}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="send" value="Add" class="mt-2 btn btn-info">
+</form>
+
+{% endblock %}

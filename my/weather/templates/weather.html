@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4 offset-2">
+            <h2>Weather in your city </h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="city"> City: </label>
+                {{form.name}}
+                <input type="submit" name="send" value="Know" class="mt-2 btn btn-danger">
+            </form>
+
+        </div>
+
+        <div class="col-4 offset-1">
+            <h2>information</h2>
+
+            {% for info in all_info %}
+            <div class="alert alert-primary">
+                <a href="{% url 'city_del' info.city_id %}" type="button" class="btn-close float-md-end "></a>
+                <div class="row">
+                    <div class="col-6">
+                        <b>City :</b> {{info.city}}<br>
+                        <b>Temperature :</b> {{info.temp}}<sup>o</sup><br>
+                        <b>Feels like :</b> {{info.f_like}}<sup>o</sup><br>
+                    </div>
+                    <div class="col-4 offset-2">
+
+                        <img src="http://openweathermap.org/img/w/{{info.icon}}.png" alt="Photo weather"
+                             class="img-thumbnail">
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}

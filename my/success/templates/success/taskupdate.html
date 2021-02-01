@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        <form action="{% url 'tasks' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">изменить</button>
+            <button type="button" class="btn btn-primary btn-block">удалить</button>
+        </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% load static %}
+
+<header class="mb-auto">
+    <div>
+
+        <h4 class="float-md-start mb-0">
+            <img src="" alt="" width="30" height="24" class="d-inline-block align-top">
+            ART ProjecT .)
+        </h4>
+        <div>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                {% if request.user.is_authenticated %}
+                <h7 class="nav-link"> GOOD DAY FOR START , {{user.username}}</h7>
+                <a class="nav-link" href="{% url 'logout' %}"> Logout</a>
+                {% else %}
+                <a class="nav-link" href="{% url 'register' %}">Register</a> | <a class="nav-link"
+                                                                                  href="{% url 'login' %}">
+                Login </a>
+                {% endif %}
+            </nav>
+
+            <nav class="nav nav-masthead justify-content-center float-center">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'API' %}">API</a>
+                <a class="nav-link" href="{% url 'primer' %}">Pri</a>
+                <a class="nav-link" href="{% url 'success' %}">Success</a>
+                <a class="nav-link" href="{% url 'timetable' %}">Timetable</a>
+                <a class="nav-link" href="{% url 'test' %}">Message test</a>
+                <a class="nav-link" href="{% url 'weather' %}">Weather</a>
+            </nav>
+        </div>
+    </div>
+</header>

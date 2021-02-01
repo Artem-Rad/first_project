@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        <form action="{% url 'tasks' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">добавить</button>
+        </form>
+    </div>
+    <div class="col-lg-3">
+        <h3>Personal tasks:</h3>
+        <div class="list-group">
+            <h4>Urgent:</h4>
+            {% for task in upt %}
+            <a href="{% url 'task_up' task.pk %}" class="list-group-item list-group-item-action" aria-current="true">
+                {{task}}
+            </a>
+            {% endfor %}
+            <h4>Not urgent:</h4>
+            {% for task in nupt %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                {{task}}
+            </a>
+            {% endfor %}
+            <h4>Not important:</h4>
+            {% for task in nipt %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                {{task}}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <h3>Works tasks:</h3>
+        <div class="list-group">
+            <h5>Urgent:</h5>
+            {% for task in uwt %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                {{task}}
+            </a>
+            {% endfor %}
+            <h5>Not urgent:</h5>
+            {% for task in nuwt %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                {{task}}
+            </a>
+            {% endfor %}
+            <h5>Not important:</h5>
+            {% for task in niwt %}
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                {{task}}
+            </a>
+            {% endfor %}
+
+        </div>
+        {% endblock %}
