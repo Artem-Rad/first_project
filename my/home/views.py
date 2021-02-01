@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.core.mail import send_mail
 
-# Create your views here.
+
 def primer(request):
     return render(request, 'primer.html')
 

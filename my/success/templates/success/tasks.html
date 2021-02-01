@@ -20,13 +20,13 @@
             {% endfor %}
             <h4>Not urgent:</h4>
             {% for task in nupt %}
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <a href="{% url 'task_up' task.pk %}" class="list-group-item list-group-item-action" aria-current="true">
                 {{task}}
             </a>
             {% endfor %}
             <h4>Not important:</h4>
             {% for task in nipt %}
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <a href="{% url 'task_up' task.pk %}" class="list-group-item list-group-item-action" aria-current="true">
                 {{task}}
             </a>
             {% endfor %}

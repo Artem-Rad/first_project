@@ -1,14 +1,11 @@
 from django.shortcuts import render
-#from rest_framework.views import APIView
-#from rest_framework.decorators import api_view
 from rest_framework import generics
 from .serializers import UserSerializater
 from django.contrib.auth.models import User
 
-# Create your views here.
 
 def index(request):
-    users = User.objects.all()  # filter(pk__gt=1)
+    users = User.objects.all()
 
     con = {
         'users':users

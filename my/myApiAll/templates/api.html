@@ -2,16 +2,15 @@
 
 {% block content %}
 <row>
+    <div class="col-lg-4">
     <div class="list-group">
-        <a href="{% url 'get_users' %}" class="list-group-item list-group-item-action list-group-item-primary" > All USERS</a>
+        <a href="{% url 'get_users' %}" class="list-group-item list-group-item-action list-group-item-dark" > All USERS</a>
         {%  for user in users %}
         <a href="{% url 'get_user' user.id %}" class="list-group-item list-group-item-action list-group-item-primary">{{user.username}}</a>
     {% endfor %}
     </div>
-
+</div>
 
 </row>
 
-<a class="nav-link" href="{% url 'get_users' %}">API All User </a>
-<a class="nav-link" href="{% url 'get_users' %}">ss User </a>
 {% endblock %}

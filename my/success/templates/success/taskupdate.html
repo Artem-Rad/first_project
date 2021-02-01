@@ -6,8 +6,34 @@
     <div class="col-lg-4">
         <form action="{% url 'tasks' %}" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <p><label for="id_text">Text:</label> <input value={{task.text}} type="text" name="text"
+                                                         class="form-control" maxlength="10"
+                                                         required="" id="id_text"></p>
+            <p><label for="id_priority">Priority:</label> <select name="priority" class="form-control" required=""
+                                                                  id="id_priority">
+                <option value="" selected="">{{task.priority}}</option>
+
+                <option value="1">Urgent tasks 1</option>
+
+                <option value="2">Not urgent tasks 2</option>
+
+                <option value="3">not important tasks 3</option>
+
+            </select></p>
+            <p><label for="id_kind">Kind:</label> <select name="kind" class="form-control" required="" id="id_kind">
+                <option value="" selected="">{{task.kind}}</option>
+
+                <option value="1">Personal tasks</option>
+
+                <option value="2">Work tasks</option>
+
+            </select></p>
+
             <button type="submit" class="btn btn-primary btn-block">изменить</button>
             <button type="button" class="btn btn-primary btn-block">удалить</button>
         </form>
-{% endblock %}
+
+
+        {% endblock %}
+
+

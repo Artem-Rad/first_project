@@ -1,12 +1,10 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from .models import Desires, Task, Goals
-from .forms import  TaskForm
+from .forms import TaskForm
 from django.views import View
 from django.contrib import messages
-#from rest_framework.views import APIView
-#from rest_framework.decorators import api_view
-# Create your views here.
+
 
 
 class DesiresList(ListView):
@@ -42,14 +40,12 @@ def tasks(request):
         else:
             messages.error(request, 'oops')
 
-
-
-    urgent_work_tasks = Task.objects.filter(user_id=request.user.id,kind_id=2,priority_id=1)
-    n_urgent_work_tasks = Task.objects.filter(user_id=request.user.id,kind_id=2,priority_id=2)
-    n_important_work_tasks = Task.objects.filter(user_id=request.user.id,kind_id=2,priority_id=3)
-    urgent_personal_tasks = Task.objects.filter(user_id=request.user.id,kind_id=1)
-    n_urgent_personal_tasks = Task.objects.filter(user_id=request.user.id,kind_id=2)
-    n_important_personal_tasks = Task.objects.filter(user_id=request.user.id,kind_id=3)
+    urgent_work_tasks = Task.objects.filter(user_id=request.user.id, kind_id=2, priority_id=1)
+    n_urgent_work_tasks = Task.objects.filter(user_id=request.user.id, kind_id=2, priority_id=2)
+    n_important_work_tasks = Task.objects.filter(user_id=request.user.id, kind_id=2, priority_id=3)
+    urgent_personal_tasks = Task.objects.filter(user_id=request.user.id, kind_id=1, priority_id=1)
+    n_urgent_personal_tasks = Task.objects.filter(user_id=request.user.id, kind_id=1, priority_id=2)
+    n_important_personal_tasks = Task.objects.filter(user_id=request.user.id, kind_id=1, priority_id=3)
     form = form = TaskForm()
     con = {
     'uwt': urgent_work_tasks,

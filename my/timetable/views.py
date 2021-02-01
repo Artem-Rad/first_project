@@ -1,9 +1,7 @@
-from django.shortcuts import render ,redirect
-from django.views.generic.base import View
-from .models import ActionsOfDay , Days
+from django.shortcuts import render, redirect
+from .models import ActionsOfDay, Days
 from .forms import ActionsForm
 from django.contrib import messages
-# Create your views here.
 
 
 def timetable(request):
@@ -13,7 +11,7 @@ def timetable(request):
          'days': days,
          'task': task,
     }
-    return render(request,'timetable.html',con)
+    return render(request, 'timetable.html', con)
 
 def add_task(request,day_id):
     day = Days.objects.get(pk=day_id)
@@ -59,10 +57,10 @@ def task_update(request,task_id):
         'form':form,
         'task':task
     }
-    return render(request,'up_task.html',con)
+    return render(request, 'up_task.html',con)
 
 
-def task_del(request,task_id):
+def task_del(request, task_id):
     task = ActionsOfDay.objects.get(id=task_id)
     task.delete()
     messages.success(request, 'task delete')
